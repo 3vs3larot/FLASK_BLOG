@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .box-container {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+        }
+        .center {
+            text-align: center;
+        }
+        .box {
+            width: 30%;
+            float: left;
+            margin: 50px 20px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+        }
+        .box a{
+            display: inline-block;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-top: 0px;
+            position: relative;
+            left: 800px;
+        }
+        .box a:hover {
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+        }
+        .box {
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+        }
+        .box h3{
+            position: relative;
+            left: 100px;
+        }
+        .box p{
+            line-height: 28px;
+            height: 60px;
+            overflow: hidden;
+            position: relative;
+            left: 200px;
+        }
+    </style>
+
+</head>
+<body>
+    
+
+
+<header>
+
+    <div id="menu-bar" class="fas fa-bars"></div>
+
+    <a href="{{ url_for('home') }}" class="logo"><span>FLASK</span>blog</a>
+
+    <nav class="navbar">
+        <a href="{{ url_for('home') }}">home</a>
+        <a href="{{ url_for('about') }}">about us</a>
+    </nav>
+
+    <div>
+        <a  id="login-btn" style="font-size: 2.5em; color: aliceblue; margin: 13px;" href="{{ url_for('login') }}">Login</a>
+        <a class="fas fa-plus" id="plus-btn" href="{{ url_for('add') }}" style="font-size: 3em; color: aliceblue;"></a>
+
+    </div>
+
+
+</header>
+
+
+<div class="login-form-container">
+
+    <i class="fas fa-times" id="form-close"></i>
+
+    <form action="">
+        <h3>login</h3>
+        <input type="email" class="box" placeholder="enter your email">
+        <input type="password" class="box" placeholder="enter your password">
+        <input type="submit" value="login now" class="btn">
+        <input type="checkbox" id="remember">
+        <label for="remember">remember me</label>
+        <p>forget password? <a href="#">click here</a></p>
+        <p>don't have and account? <a href="#">register now</a></p>
+    </form>
+
+</div>
+
+<section class="home" id="home">
+
+    <div class="content">
+        <h3>FLASK_BLOG</h3>
+        <p>Đức Nam - Diễm Hoàng - Quốc Việt</p>
+        <a href="{{ url_for('about') }}" class="btn">About Us</a>
+    </div>
+
+
+    <div class="video-container">
+        <video src="static/images/video.mp4" id="video-slider" loop autoplay muted></video>
+    </div>
+
+</section>
+
+<section class="packages" id="packages">
+
+    <h1 class="heading">
+        <span>n</span>
+        <span>e</span>
+        <span>w</span>
+        <span>p</span>
+        <span>o</span>
+        <span>s</span>
+        <span>t</span>
+    </h1>
+
+        <div class="box-container">
+            <div class="box">
+                <img src="static/images/team.png" alt="">
+                <div class="content">
+                    {% for post in posts %}
+                    <div class="post-preview">
+                        <h3 class="post-title" style="color: chocolate; font-size: 40px;">{{ post.title }}</h3>
+                        <p class="post-subtitle">{{ post.subtitle }}</p>
+                        <p class="post-meta">Posted by {{ post.author }} on {{ post.date_posted.strftime('%B %d, %Y') }}</p>
+                        <a href="{{ url_for('post', post_id=post.id) }}" class="btn">Xem chi tiết</a>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+                    {% endfor %}
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="contact" id="contact">
+    
+    <h1 class="heading">
+        <span>c</span>
+        <span>o</span>
+        <span>n</span>
+        <span>t</span>
+        <span>a</span>
+        <span>c</span>
+        <span>t</span>
+    </h1>
+
+    <div class="row">
+
+        <div class="image">
+            <img src="static/images/contact-img.svg" alt="">
+        </div>
+
+        <form action="">
+            <div class="inputBox">
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+            </div>
+            <textarea placeholder="Message" name="" id="" cols="30" rows="10"></textarea>
+            <input type="submit" class="btn" value="send">
+        </form>
+
+    </div>
+    
+</section>
+
+
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>about us</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quas magni pariatur est accusantium voluptas enim nemo facilis sit debitis.</p>
+        </div>
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#">home</a>
+            <a href="#">about us</a>
+            <a href="#">add</a>
+            <a href="#">new post</a>
+        </div>
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="#">facebook</a>
+            <a href="#">instagram</a>
+            <a href="#">twitter</a>
+            <a href="#">linkedin</a>
+        </div>
+
+    </div>
+
+    <h1 class="credit"> created by <span> DucNam - DiemHoang - QuocViet </span> | all member! </h1>
+
+</section>
+
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="script.js"></script>
+
+</body>
+</html>

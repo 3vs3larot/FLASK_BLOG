@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header>
+
+    <div id="menu-bar" class="fas fa-bars"></div>
+
+    <a href="{{ url_for('home') }}" class="logo"><span>FLASK</span>blog</a>
+
+    <nav class="navbar">
+        <a href="{{ url_for('home') }}">home</a>
+        <a href="{{ url_for('about') }}">about us</a>
+    </nav>
+
+    <div>
+        <a  id="login-btn" href="{{ url_for('login') }}" style="font-size: 2.5em; color: aliceblue; margin: 13px;">Login</a>
+        <a class="fas fa-plus" id="plus-btn" href="{{ url_for('add') }}" style="font-size: 3em; color: aliceblue;"></a>
+
+    </div>
+
+
+</header>
+
+<!-- header section ends -->
+
+<!-- login form container  -->
+
+<div class="login-form-container">
+
+    <i class="fas fa-times" id="form-close"></i>
+
+    <form action="">
+        <h3>login</h3>
+        <input type="email" class="box" placeholder="enter your email">
+        <input type="password" class="box" placeholder="enter your password">
+        <input type="submit" value="login now" class="btn">
+        <input type="checkbox" id="remember">
+        <label for="remember">remember me</label>
+        <p>forget password? <a href="#">click here</a></p>
+        <p>don't have and account? <a href="#">register now</a></p>
+    </form>
+
+</div>
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+    <div class="content">
+        <h3>FLASK_BLOG</h3>
+        <p>Đức Nam - Diễm Hoàng - Quốc Việt</p>
+    </div>
+
+
+    <div>
+        <img src="static/images/About-Us.png"></img>
+    </div>
+
+</section>
+
+<!-- home section ends -->
+
+
+<section class="review" id="review">
+
+    <h1 class="heading">
+        <span>t</span>
+        <span>e</span>
+        <span>a</span>
+        <span>m</span>
+        <span>m</span>
+        <span>e</span>
+        <span>m</span>
+        <span>b</span>
+        <span>e</span>
+        <span>r</span>
+    </h1>
+
+    <div class="swiper-container review-slider">
+
+        <div class="swiper-wrapper">
+
+            <div>
+                <div class="box">
+                    <img src="static/images/ducnam.jpg" alt="">
+                    <h3>Đức Nam</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa reprehenderit exercitationem!</p>
+                </div>
+            </div>
+            <div>
+                <div class="box">
+                    <img src="static/images/diemhoang.jpg" alt="">
+                    <h3>Diễm Hoàng</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa reprehenderit exercitationem!</p>
+                </div>
+            </div>
+            <div >
+                <div class="box">
+                    <img src="static/images/quocviet.jpg" alt="">
+                    <h3>Quốc Việt</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa reprehenderit exercitationem!</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+    
+</section>
+
+
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>about us</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quasenim nemo facilis sit debitis.</p>
+        </div>
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#">home</a>
+            <a href="#">about us</a>
+            <a href="#">add</a>
+            <a href="#">new post</a>
+        </div>
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="#">facebook</a>
+            <a href="#">instagram</a>
+            <a href="#">twitter</a>
+            <a href="#">linkedin</a>
+        </div>
+
+    </div>
+
+    <h1 class="credit"> created by <span> DucNam - DiemHoang - QuocViet </span> | all member! </h1>
+
+</section>
+
+
+
+
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="script.js"></script>
+
+</body>
+</html>
